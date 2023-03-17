@@ -1,11 +1,12 @@
 
-const fontControl = document.getElementById('font-size-control');
-const textSpan = document.getElementById('text');
+const fontControl = document.querySelector("input#font-size-control");
+const textSpan = document.querySelector("span#text");
 
-const setFontSize = (value) => {
-  textSpan.style.fontSize = `${value}px`;
-};
+textSpan.style.fontSize = `${fontControl.valueAsNumber}px`;
 
-fontControl.addEventListener('input', (event) => {
-  setFontSize(event.target.value);
-});
+function onRangeChange () {
+    textSpan.style.fontSize = `${fontControl.valueAsNumber}px`;
+
+    };
+    
+fontControl.addEventListener("input", onRangeChange);
